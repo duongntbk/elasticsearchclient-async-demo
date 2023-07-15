@@ -1,0 +1,4 @@
+elasticsearch:
+  login: <your username>
+  password: <your password>
+  fingerprint: <your fingerprint>
