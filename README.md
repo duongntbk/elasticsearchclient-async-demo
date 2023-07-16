@@ -1,6 +1,6 @@
 This is a sample app for my blog post at the link below.
 
-[https://duongnt.com/elasticsearch-async-request-kotlin](https://duongnt.com/elasticsearch-async-request-kotlin)
+[https://duongnt.com/elasticsearch-async-search-kotlin](https://duongnt.com/elasticsearch-async-search-kotlin)
 
 # Usage
 
@@ -18,7 +18,7 @@ Hits returned: 5
 Hits returned: 5
 Processing time: <a number around 2>
 ==========================================================
-Id: <a random Id>, IsPartial: false, IsRunning: false
+Id: <a random id>, IsPartial: true, IsRunning: true
 ==========================================================
 Hits: 5
 Name: Bukayo Saka, Score: 4.787636

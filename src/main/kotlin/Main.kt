@@ -56,7 +56,7 @@ private fun testAsyncSearch(client: ElasticsearchAsyncSearchClientWrapper) {
     val submitRequest = SubmitRequest.Builder()
         .index("footballer")
         .query(buildQueryByClass().query())
-        .keepOnCompletion(true)
+        .waitForCompletionTimeout(Time.of { t -> t.time("0s") })
         .keepAlive(Time.of { t -> t.time("30s") })
         .build()
 
@@ -68,7 +68,6 @@ private fun testAsyncSearch(client: ElasticsearchAsyncSearchClientWrapper) {
 
     val responseRequest = GetAsyncSearchRequest.Builder().id(submitResponse.id()).build()
     val response = client.getResponse(responseRequest, Footballer::class.java)
-
     if (!response.isRunning) {
         printResults(response.response().hits())
     }
