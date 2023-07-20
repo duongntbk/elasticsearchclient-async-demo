@@ -12,10 +12,12 @@ Also, please follow [this](https://duongnt.com/query-boosting-elasticsearch) blo
 
 ## Run the sample code
 
-Run the application using your IDE of choice. You should see the following results in console.
+Run the application using your IDE of choice. You should see the following results in console (your thread name might be different).
 ```
-Hits returned: 5
-Hits returned: 5
+Finish search 1 from thread: DefaultDispatcher-worker-2
+Finish search 2 from thread: DefaultDispatcher-worker-2
+Search 1 hits returned: 5
+Search 2 hits returned: 5
 Processing time: <a number around 2>
 ==========================================================
 Id: <a random id>, IsPartial: true, IsRunning: true

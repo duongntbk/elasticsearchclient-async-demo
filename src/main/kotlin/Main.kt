@@ -35,10 +35,14 @@ private suspend fun testSearchAsync(client: ElasticsearchAsyncClientWrapper) = c
     val stopWatch = Stopwatch.createStarted()
 
     val deferredResponse1 = async(Dispatchers.IO) {
-        client.search(request1, Footballer::class.java)
+        val rs = client.search(request1, Footballer::class.java)
+        println("Finish search 1 from thread: ${Thread.currentThread().name}")
+        rs
     }
     val deferredResponse2 = async(Dispatchers.IO) {
-        client.search(request2, Footballer::class.java)
+        val rs = client.search(request2, Footballer::class.java)
+        println("Finish search 2 from thread: ${Thread.currentThread().name}")
+        rs
     }
 
     awaitAll(deferredResponse1, deferredResponse2)
@@ -47,8 +51,8 @@ private suspend fun testSearchAsync(client: ElasticsearchAsyncClientWrapper) = c
 
     val processTime = stopWatch.elapsed(TimeUnit.MILLISECONDS)
 
-    println("Hits returned: ${response1.hits().total()?.value() ?: 0}")
-    println("Hits returned: ${response2.hits().total()?.value() ?: 0}")
+    println("Search 1 hits returned: ${response1.hits().total()?.value() ?: 0}")
+    println("Search 2 hits returned: ${response2.hits().total()?.value() ?: 0}")
     println("Processing time: $processTime")
 }
 
